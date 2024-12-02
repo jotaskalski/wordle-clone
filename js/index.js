@@ -263,7 +263,7 @@ function handleVirtualKey(key) {
         situacao.colunaAtual = 0;
         updateSituacaoTeclado(word);  // Atualiza o estado das teclas do teclado virtual <<< Alteração
       } else {
-        alert('Not a valid word.');
+        alert('Palavra inválida.');
       }
     }
   } else if (key === 'Backspace') {
