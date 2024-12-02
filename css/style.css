@@ -1,0 +1,314 @@
+html,
+body {
+  background: var(--default);
+}
+
+body {
+  font-size: 16px;
+}
+
+:root {
+  --default: #121213;
+  --vazio: #3a3a3c;
+  --errado: #b59f3b;
+  --correto: #538d4e;
+}
+
+#game {
+  display: flex;
+  justify-content: center;
+  align-items: start;
+  margin-top: 5rem;
+  width: 100%;
+  min-height: 50vh;
+  margin-bottom: 1rem;
+}
+
+.grid {
+  display: grid;
+  grid-template-rows: repeat(6, auto);
+  grid-template-columns: repeat(5, auto);
+}
+
+.box {
+  width: 60px;
+  height: 60px;
+  border: 2px solid var(--vazio);
+  margin: 4px;
+  color: white;
+  text-transform: uppercase;
+  display: grid;
+  place-items: center;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 2.4rem;
+  transition: background-color 0.5s ease, transform 0.5s ease;
+}
+
+.box.empty {
+  background: var(--vazio);
+}
+
+.box.wrong {
+  background: var(--errado);
+}
+
+.box.right {
+  background: var(--correto);
+}
+
+.animated {
+  animation: flip 0.5s ease;
+}
+
+@keyframes flip {
+  0% {
+    transform: scaleY(1);
+  }
+  50% {
+    transform: scaleY(0);
+  }
+  100% {
+    transform: scaleY(1);
+  }
+}
+
+.title {
+  color: white;
+  text-align: center;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 3rem;
+  margin-bottom: 0;
+  position: relative;
+}
+
+hr {
+  border-style: solid;
+  border-color: var(--empty);
+  border-width: 1px;
+}
+
+.footer {
+  display: flex;
+  justify-content: center;
+  color: white;
+  text-align: center;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+#keyboard {
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  margin-top: 1rem;
+  margin-bottom: 0;
+  gap: 1px;
+}
+
+.keyboard-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-bottom: 0.3rem;
+}
+
+.key {
+  width: 50px;
+  height: 40px;
+  margin: 1px; 
+  border: none;
+  border-radius: 4px;
+  background-color: var(--vazio);
+  color: white;
+  font-size: 1.2rem;
+  text-transform: uppercase;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: Arial, sans-serif;
+  transition: background-color 0.2s ease;
+}
+
+.special {
+  width: 80px;
+  font-size: 16px;
+}
+
+.key:hover {
+  background-color: #535354;
+}
+
+.key.special {
+  width: 80px;
+}
+
+.key.right {
+  background-color: var(--correto);
+}
+
+.key.wrong {
+  background-color: var(--errado);
+}
+
+.key.empty {
+  background-color: var(--vazio);
+}
+
+
+.restart-container {
+  text-align: center;
+  margin-top: 0.5rem;
+}
+
+.restart-btn {
+  background-color: #538d4e; 
+  color: white;
+  font-size: 1.2rem;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  margin-bottom: 0.5rem;
+}
+
+.restart-btn:hover {
+  background-color: #4CAF50;
+}
+
+
+
+@media (max-width: 600px) {
+  .title {
+    font-size: 2rem;
+  }
+
+  #game {
+    flex-direction: column;
+    align-items: center;
+    min-height: 40vh;
+    margin-bottom: 1rem;
+    margin-top: 1.5rem;
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+  }
+
+  .box {
+    width: 45px;
+    height: 45px;
+    font-size: 1.6rem;
+  }
+
+  #keyboard {
+    margin-top: 1rem;
+  }
+
+  .keyboard-row {
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+
+  .key {
+    width: 35px;
+    height: 35px;
+    font-size: 0.9rem;
+  }
+
+  .key.special {
+    width: 60px;
+  }
+
+  .footer {
+    font-size: 1rem;
+  }
+}
+
+/* Media Query para telas de 768px até 1280px (iPads, Kindles, etc.) */
+@media (min-width: 768px) and (max-width: 1280px) {
+  .title {
+    font-size: 2.8rem; 
+  }
+
+  #game {
+    min-height: 35vh;
+    margin-bottom: 1rem; 
+    margin-top: 1.5rem;
+  }
+
+  .grid {
+    grid-template-columns: repeat(5, 1fr);
+  }
+
+  .box {
+    width: 60px;
+    height: 60px;
+    font-size: 2rem;
+  }
+
+  #keyboard {
+    margin-top: 0.5rem;
+  }
+
+  .keyboard-row {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .key {
+    width: 40px; 
+    height: 40px;
+    font-size: 1.2rem; 
+  }
+
+  .key.special {
+    width: 90px; 
+  }
+
+  .footer {
+    font-size: 1.2rem;
+    margin-top: 0;
+  }
+}
+
+/* Media Query para telas de até 768px (Celulares e dispositivos menores) */
+@media (max-width: 768px) {
+  .title {
+    font-size: 2.5rem;
+  }
+
+  #game {
+    min-height: 45vh;
+    margin-bottom: 1rem;
+  }
+
+  .grid {
+    grid-template-columns: repeat(5, 1fr);
+  }
+
+  .box {
+    width: 60px;
+    height: 60px;
+    font-size: 2rem;
+  }
+
+  #keyboard {
+    margin-top: 0;
+  }
+
+  .keyboard-row {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .key {
+    width: 32px;
+    height: 32px;
+    font-size: 1.1rem;
+  }
+}
